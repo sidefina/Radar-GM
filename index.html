@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mind Map Radar GM403 Part 1</title>
+<style>
+:root{--bg:#f3f6f7;--ink:#13242c;--mut:#5b6f78;--card:#ffffff;--line:#d5dee2;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1a20;--ink:#e6eef1;--mut:#93a8b1;--card:#16262e;--line:#2a3f49;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1a20;--ink:#e6eef1;--mut:#93a8b1;--card:#16262e;--line:#2a3f49;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "Segoe UI",system-ui,-apple-system,Roboto,sans-serif;padding:0 14px 40px}
+main{max-width:720px;margin:0 auto}
+.core{margin:18px 0 14px;padding:18px 16px;border-radius:50px 50px 50px 50px / 40px;border:2px solid var(--ink);text-align:center;background:var(--card)}
+.core h1{font-size:1.25rem;margin:0 0 2px;line-height:1.25}
+.core p{margin:0;color:var(--mut);font-size:.9rem}
+.bar{display:flex;gap:8px;margin:0 0 12px}
+.bar button{flex:1;padding:9px 10px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;font:inherit;font-size:.9rem;cursor:pointer}
+.bar button:focus-visible,summary:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.nums{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:14px}
+.nums h2{font-size:1rem;margin:0 0 8px}
+.nums div{display:flex;flex-wrap:wrap;gap:6px}
+.nums span{font-size:.85rem;border:1px solid var(--line);border-radius:6px;padding:3px 8px}
+.nums b{font-weight:700}
+details.b{margin:0 0 10px;background:var(--card);border:1px solid var(--line);border-left:8px solid var(--c);border-radius:4px 12px 12px 4px}
+details.b>summary{font-weight:700;font-size:1.05rem;padding:13px 14px}
+summary{cursor:pointer;list-style:none;position:relative;padding-right:30px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--mut);font-weight:400;font-size:1.2rem}
+details[open]>summary::after{content:"\2212"}
+ul{list-style:none;margin:0;padding:0 14px 10px 14px}
+li{padding:5px 0 5px 14px;border-left:2px solid var(--c);margin-left:4px;font-size:.95rem}
+li li{font-size:.92rem}
+li details{margin:0}
+li summary{font-weight:600;padding:2px 28px 2px 0}
+li ul{padding:2px 0 2px 6px}
+.note{color:var(--mut);font-size:.8rem;margin-top:16px}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;align-items:center;gap:14px;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 14px;margin:0 -14px}
+.brand{font-weight:700;color:var(--ink);text-decoration:none;white-space:nowrap}
+#nav{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+#nav a{white-space:nowrap;padding:5px 11px;border:1px solid var(--line);border-radius:999px;color:var(--ink);text-decoration:none;font-size:.85rem}
+#nav a:hover{background:var(--card)}
+a:focus-visible,input:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.site{max-width:1040px}
+.hero{position:relative;overflow:hidden;isolation:isolate;padding:44px 4px 28px}
+.hero h1{font-size:clamp(2rem,7vw,3.4rem);line-height:1.05;margin:0 0 10px;max-width:14ch}
+.hero .sub{color:var(--mut);max-width:44ch;margin:0 0 20px}
+.hero input{width:100%;max-width:460px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:inherit}
+.rd{position:absolute;right:-90px;top:-60px;width:320px;height:320px;border-radius:50%;background:repeating-radial-gradient(circle,transparent 0 38px,var(--line) 39px 40px);z-index:-1}
+.rd::after{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 300deg,rgba(31,122,140,.35) 360deg);animation:sw 6s linear infinite}
+@keyframes sw{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.rd::after{animation:none}}
+.nums{margin:0 0 28px}
+.mod{margin:0 0 34px}
+.mod h2{font-size:1.4rem;margin:0 0 14px;padding-left:12px;border-left:8px solid var(--c)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.site article{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:6px 6px 12px 12px;padding:14px}
+.site article h3{margin:0 0 8px;font-size:1.02rem}
+.site article ul{padding:0}
+.site article li{border-left:0;margin:0;padding:3px 0 3px 14px;position:relative;font-size:.93rem}
+.site article li::before{content:"";position:absolute;left:0;top:.85em;width:6px;height:6px;border-radius:50%;background:var(--c)}
+.site article li ul{padding:2px 0 0 0}
+.site article li strong{display:block}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<header class="top"><a class="brand" href="#atas">📡 Radar GM403</a><nav id="nav" aria-label="Daftar modul"></nav></header>
+<main class="site" id="atas">
+<section class="hero"><div class="rd" aria-hidden="true"></div><h1>Radar GM403 Part 1</h1><p class="sub">Ringkasan belajar cepat dari materi Preliminary Training PT Len Industri: 8 modul, dari gelombang RF sampai IFF.</p><input id="q" type="search" placeholder="Cari istilah, mis. duplexer, RCS, Mode 5" aria-label="Cari materi"></section>
+<div class="nums"><h2>Angka wajib hafal</h2><div>
+<span>c = <b>3×10⁸ m/s</b></span><span>λ = c/f</span><span>PRF = <b>1/PRI</b></span><span>Daya rata-rata = Puncak × Duty cycle</span><span>IFF: interrogator Tx <b>1030 MHz</b>, Rx <b>1090 MHz</b></span><span>dBd = dBi − <b>2,14</b></span><span>GM403 PSR <b>278 NM (550 km)</b></span><span>Ground wave &lt; <b>50 km</b></span><span>Sky wave ≤ <b>3000 km</b></span><span>Duplexer GSM900: UL 890–915, DL 935–960 MHz</span>
+</div></div>
+<div id="t"></div>
+<p class="note">Disusun dari materi PDF yang diunggah. Ringkasan hitungan daya radar (R ∝ ⁴√P) adalah penjelasan tambahan, bukan kutipan slide.</p>
+</main>
+<script>
+var D=[
+["1. Dasar Gelombang RF","#1f7a8c",[
+["Prinsip",["Arus listrik membuat medan magnet (Ampère); medan magnet yang berubah membuat arus (Faraday)","Maxwell: gelombang elektromagnetik itu transversal, medan listrik dan magnet bergantian","Merambat tanpa materi, kecepatan 3×10⁸ m/s di ruang hampa"]],
+["Panjang gelombang dan frekuensi",["f = c/λ","Contoh: radio 2 meter → 150 MHz (praktiknya 144 MHz)","20 meteran ≈ 20 MHz; CB 11 m ≈ 27 MHz"]],
+["Band frekuensi",["VLF 3–30 kHz: komunikasi bawah air","LF 30–300 kHz: navigasi","MF 300 kHz–3 MHz: radio AM","HF 3–30 MHz: SSB jarak jauh","VHF 30–300 MHz: TV analog, FM","UHF 300 MHz–3 GHz: TV digital, WiFi, HP, GPS","SHF 3–30 GHz: radar, satelit, 5G","EHF 30–300 GHz: eksperimental","Band huruf: L 1–2, S 2–4, C 4–8, X 8–12, Ku 12–18, K 18–26,5, Ka 26,5–40 GHz"]],
+["Propagasi",[["Gelombang tanah",["Langsung (line of sight), pantulan tanah, permukaan tanah","Ground wave untuk jarak dekat (kurang dari 50 km), redaman tergantung konduktivitas permukaan"]],["Ionosfer (sky wave)",["Jarak jauh sampai 3000 km, tidak terpengaruh kondisi permukaan","Lapisan D 50–90 km, E 90–145 km, F 160–400 km","Multi-hop, Sporadic E, F-layer, TEP, long-path vs short-path","Jangkauan tergantung antena, frekuensi, waktu"]],["Fenomena",["Refraksi: pembelokan karena beda indeks refraksi antar media","Refleksi: pantulan dari bangunan, bukit, pesawat (di atas 30 MHz)","Knife edge diffraction: sinyal melentur di atas puncak bukit"]]]],
+["Komponen RF",["Pasif: resistor (V=IR), kapasitor (simpan muatan, filter), induktor (simpan medan magnet, RF choke)","Aktif: dioda (satu arah), transistor, IC","Koaksial: hard line, triaxial, rigid line, radiating cable; impedansi Z = √(Zo·Zs)","Stripline dan microstrip: untuk gelombang mikro (orde cm), jadi splitter, combiner, matching"]],
+["Modul perangkat RF",["Filter LPF, BPF, HPF","Circulator dan isolator, attenuator (π), coupler/sampler","Diplexer: 1 antena banyak band; Duplexer: pisahkan Tx dan Rx","3 dB coupler: gabung pemancar, bagi sinyal TMA","Waveguide: mode TE, TM, TEM (tidak bisa di rectangular), hybrid","RF switch, T/R switch, rotary joint, phase shifter","Amplifier radar: magnetron, klystron, solid state","Modulator (mixer, osilator, BPF), osilator kristal, mixer"]]
+]],
+["2. Elektronika Komunikasi","#c26a2e",[
+["Klasifikasi",["Media: wired (LAN, telepon, kabel) vs wireless (radio, WiFi, seluler, satelit)","Arah: simplex (broadcast), half duplex (walkie talkie), full duplex (HP)"]],
+["Modulasi dan multiplexing",["Carrier bisa diubah amplitudo, frekuensi, atau fasa","Multiplexing: banyak sinyal di satu kanal"]],
+["Radio",["Blok: input filter dan preamp, demodulator, audio proc, modulator, power amp, tuner, antena, Tx-Rx switch, PTT","HF/SSB: jarak jauh, daya besar, cocok di pegunungan","VHF/UHF: antena pendek, cocok manpack, jarak dekat (horizon)"]],
+["Redaman propagasi",["Free space: berbanding terbalik kuadrat jarak (1 km ke 3 km → energi tinggal 1/9)","Absorpsi: besar di frekuensi tinggi (uap air)","Multipath: sinyal tiba lewat banyak jalur, bisa fading","Fresnel zone: area bebas halangan, zona pertama paling kritis"]],
+["Serat optik",["Single mode: inti kecil, jarak jauh, bandwidth tinggi, laser, mahal, backbone","Multimode: jarak pendek, LED atau laser, murah, LAN","Masalah: dispersi mode polarisasi"]],
+["Satelit",["Perangkat RF satelit dan ground station, antena satelit dan stasiun bumi","Doppler shift karena pergeseran orbit"]]
+]],
+["3. Antena","#6a4c93",[
+["Dasar",["Transmit: listrik jadi gelombang EM; Receive: sebaliknya","Gain dalam dBi (isotropik); dBd = dBi − 2,14","Beamwidth, side lobe, polarisasi (arah medan listrik), impedansi feed (VSWR, gelombang berdiri)","Near field (belum jadi gelombang) vs far field (pola radiasi stabil)","Antena lebih besar → berkas sempit, gain tinggi"]],
+["Jenis",["Isotropik (teori, 0 dB, referensi)","Monopole, dipole (arus maksimum di tengah)","Cetak: patch, slot, dipole printed","Slotted waveguide: radar, satelit, militer","Horn (rectangular, circular) dan parabola (reflektor, feed di titik fokus)"]],
+["Array",["Tujuan: naikkan gain, atur arah (beam steering), atur beamwidth, tekan side lobe","Naikkan gain: tambah elemen, atur spasi, atur amplitudo dan fasa","Steering: elektronik (fasa tiap elemen) atau mekanik","Analog vs digital beamforming"]],
+["Alasan penting untuk EW",["Menentukan arah datang sinyal, polarisasi, deteksi radar, dan penghindaran jamming"]]
+]],
+["4. Pernika (Electronic Warfare)","#b0413e",[
+["Definisi",["Pakai spektrum elektromagnetik untuk kuasai musuh, ganggu komunikasi, lindungi aset sendiri","Tujuan: dominasi spektrum, unggul informasi, lumpuhkan komunikasi, radar, kontrol senjata musuh"]],
+["Prinsip kerja",["1 Deteksi (ES)","2 Identifikasi dan analisis (buat EOB)","3 Electronic Attack: jamming, spoofing, HPM","4 Protection: anti-jamming, enkripsi, frequency hopping"]],
+["Kategori fungsi",[["ECM / Electronic Attack",["Mekanik: chaff, corner reflector, decoy","Elektronik, noise: spot, sweep, barrage (plus base dan pulse jamming)","Elektronik, deception: repeater / DRFM (delay, Doppler, sudut palsu)"]],["ECCM / Electronic Protection",["Anti-jamming, contoh: frequency agility"]],["ESM",["Sensor pasif: tahu jenis dan azimuth, tidak tahu jarak"]],"Cyber warfare","SIGINT (penyadapan) dan enkripsi"]]
+]],
+["5. Pengantar Radar","#2e7d4f",[
+["Kenapa radar",["Deteksi dini, pertahanan udara (Iron Dome), pemandu rudal, melawan stealth"]],
+["PSR vs SSR",["PSR: echo pasif, target tidak perlu aktif","SSR: target menjawab aktif di frekuensi lain, beri info tambahan (kode, ketinggian)"]],
+["Dasar",["Sudut azimuth dan elevasi, ukuran (RCS), kecepatan (Doppler)","Daya rata-rata = daya puncak × duty cycle; CW duty cycle 100%","PRF = 1/PRI","Pulse compression: pulsa berfrekuensi berubah plus matched filter","Deteksi: sinyal sama tiap kali, noise berbeda, jadi integrasi menaikkan SNR","Clutter lebih besar dari target, tetapi target bergerak, clutter tidak"]]
+]],
+["6. Persamaan Radar, Propagasi, RCS","#a8841a",[
+["Persamaan jarak radar",["Menghubungkan: sifat target (RCS), radar (daya, apertur antena), jarak, medium (atenuasi)","Daya diterima = kerapatan daya di radar × RCS × apertur","Ukuran kemampuan deteksi: SNR","Noise: dari antena (Ta), komponen RF (Tr, Lr), penerima (Te), buatan manusia","Bentuk: surveillance, search, track","Soal materi: daya turun 45 → 40 dBW; selisih 5 dB ≈ daya 0,32×, jarak ≈ 0,75× (R ∝ ⁴√P)"]],
+["Efek propagasi",["Atenuasi atmosfer di sea level","Pantulan permukaan bumi: interferensi bikin lobing, deteksi maksimum sampai 2× free space, di null tidak ada echo","Koefisien pantul: dekat 1 untuk laut halus, dekat 0 untuk darat kasar","Difraksi dan refraksi untuk over-the-horizon","Multipath frekuensi rendah vs tinggi: target rendah lebih baik di frekuensi tinggi"]],
+["RCS",["Luas efektif target yang mencegat dan menghamburkan daya","Kontributor: struktural, propulsi (inlet, knalpot), avionik","Pengukuran: model skala, compact range, background subtraction, simulasi","Soal materi: kenapa stealth hanya terdeteksi di jarak dekat"]]
+]],
+["7. Pemancar dan Penerima Radar","#3a5fa8",[
+["Rantai pemancar",["Waveform generator → driver → PA → HPA","Gabung beberapa amplifier naikkan daya, tetapi ada rugi combiner","Pemancar 10 kW–1 MW, penerima hanya mW, jadi duplexer wajib mengisolasi"]],
+["Tabung vs solid state",["Tabung (magnetron, TWT, klystron): daya puncak besar, berat, boros, umur lebih pendek","Solid state: hemat, ringan, andal (MTBF), sering plus pulse compression"]],
+["Perbandingan",["Pulse vs CW; pulse vs pulse compression (resolusi lebih baik)","Parabola (gain tinggi, murah) vs phased array (steering elektronik cepat, mahal)","Contoh phased array: PAVE PAWS, 1792 modul T/R, 340 W tiap modul","Arsitektur: konvensional, active analog T/R, digital (A/D tiap modul)","Monopulse tracking: bandingkan sinyal beberapa berkas untuk sudut presisi"]]
+]],
+["8. Radar GM403 dan IFF","#8a3f78",[
+["Radar GM403",["Buatan Thales dan PT Len Industri; TNI mengakuisisi 13 unit","PSR sampai 278 NM (550 km), S-Band, solid state GaN","Scan 10 RPM, MTBCF lebih dari 3000 jam","Satu paket dalam container ISO 20 kaki","Pendahulu: Thomson TRS-2215 / TRS-2230 (3D, early warning dan GCI)"]],
+["IFF / SSR",["Interrogator (Base): Tx 1030 MHz, Rx 1090 MHz; Transponder (Remote): kebalikannya","Pancaran interogasi dikirim sesaat sebelum sinyal radar (presync)","Antena SSR dipasang di atas antena PSR","Tujuan IFF: identifikasi kawan atau lawan otomatis, cegah salah tembak","Tujuan SSR sipil: identifikasi pesawat, ketinggian, pisahkan lalu lintas ATC"]],
+["Mode",["Mode 1: 2 digit octal (militer)","Mode 2: 4 digit octal (militer)","Mode 3/A: 4 digit octal (militer dan sipil)","Mode C: laporan ketinggian otomatis","Mode 4: terenkripsi NATO; Mode 5: pengganti Mode 4, lebih aman","Mode S: interogasi selektif ke pesawat tertentu"]],
+["Arsitektur",["Interrogator, transponder, display, kripto komputer"]]
+]]
+];
+function li(n){if(typeof n==="string")return"<li>"+n+"</li>";return"<li><strong>"+n[0]+"</strong><ul>"+n[1].map(li).join("")+"</ul></li>"}
+var S=["RF","Komunikasi","Antena","Pernika","Radar","Persamaan","Tx/Rx","GM403 &amp; IFF"],h="",nv="";
+D.forEach(function(b,i){var id="m"+(i+1);nv+='<a href="#'+id+'">'+(i+1)+" "+S[i]+"</a>";h+='<section class="mod" id="'+id+'" style="--c:'+b[1]+'"><h2>'+b[0]+'</h2><div class="grid">'+b[2].map(function(s){return"<article><h3>"+s[0]+"</h3><ul>"+s[1].map(li).join("")+"</ul></article>"}).join("")+"</div></section>"});
+document.getElementById("t").innerHTML=h;document.getElementById("nav").innerHTML=nv;
+document.getElementById("q").addEventListener("input",function(e){var v=e.target.value.trim().toLowerCase();document.querySelector(".nums").hidden=!!v;document.querySelectorAll(".mod").forEach(function(m){var n=0;m.querySelectorAll("article").forEach(function(a){var ok=!v||a.textContent.toLowerCase().indexOf(v)>-1;a.hidden=!ok;if(ok)n++});m.hidden=!n})});
+</script>
+</body>
+</html>
